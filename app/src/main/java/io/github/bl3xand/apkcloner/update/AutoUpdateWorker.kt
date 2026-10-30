@@ -30,6 +30,10 @@ import io.github.bl3xand.apkcloner.shizuku.ShizukuState
 import io.github.bl3xand.apkcloner.sources.data.SourcesRepository
 import io.github.bl3xand.apkcloner.sources.work.SourcesBackground
 import java.io.File
+import java.time.Instant
+import java.time.LocalDate
+import java.time.LocalTime
+import java.time.ZoneId
 import java.util.concurrent.TimeUnit
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -344,10 +348,21 @@ class AutoUpdateWorker(context: Context, params: WorkerParameters) : CoroutineWo
                 forgetWaitingEnqueuedAt(context)
                 return
             }
-            val request = PeriodicWorkRequestBuilder<AutoUpdateWorker>(settings.checkIntervalDays, TimeUnit.DAYS)
+            val now = Instant.now()
+            val request = PeriodicWorkRequestBuilder<AutoUpdateWorker>(settings.checkIntervalHours.toLong(), TimeUnit.HOURS)
+                .setInitialDelay(delayUntilAnchor(now, ZoneId.systemDefault(), settings.checkAnchorHour), TimeUnit.MILLISECONDS)
                 .setBackoffCriteria(BackoffPolicy.LINEAR, SHIZUKU_RETRY_STEP_MINUTES, TimeUnit.MINUTES)
                 .build()
             workManager.enqueueUniquePeriodicWork(WORK_NAME, ExistingPeriodicWorkPolicy.UPDATE, request)
+        }
+
+        /** Delay to the next chosen local hour; DST gaps/overlaps use java.time's safe zone rules. */
+        internal fun delayUntilAnchor(now: Instant, zone: ZoneId, hour: Int): Long {
+            require(hour in 0..23)
+            val localNow = now.atZone(zone)
+            var next = LocalDate.ofInstant(now, zone).atTime(LocalTime.of(hour, 0)).atZone(zone)
+            if (next.isBefore(localNow)) next = next.plusDays(1)
+            return java.time.Duration.between(now, next.toInstant()).toMillis()
         }
     }
 }
