@@ -69,6 +69,11 @@
         <item>a cada 3 meses</item>
         <item>a cada 6 meses</item>
         <item>uma vez por ano</item>
+        <item>a cada 4 horas</item>
+        <item>a cada 6 horas</item>
+        <item>a cada 8 horas</item>
+        <item>a cada 12 horas</item>
+        <item>a cada 24 horas</item>
     </string-array>
     <string name="channel_updates">Atualizações de clones</string>
     <string name="settings_play_protect_button">Configurações do Play Protect</string>
@@ -133,22 +138,22 @@
 
     <string name="settings_signing_key">Chave de assinatura</string>
     <string name="key_bundled_title">Chave embutida</string>
-    <string name="key_bundled_description">Os clones e os APKs mesclados são assinados com a chave que vem no aplicativo. Ela é a mesma para todos e pública. Crie ou importe uma chave própria para assinar com algo que só você tem.</string>
+    <string name="key_bundled_description">A chave antiga é mantida apenas para atualizar clones de versões anteriores do APK-Toolbox. Novas compilações usam a chave privada desta instalação.</string>
     <string name="key_custom_title">Sua própria chave</string>
     <string name="key_custom_description">%1$s\nSHA-256 %2$s…\nExporte-a e guarde o arquivo: sem ela, os clones assinados com essa chave não poderão ser atualizados depois de reinstalar o aplicativo.</string>
     <string name="key_create">Criar</string>
     <string name="key_import">Importar</string>
     <string name="key_export">Exportar</string>
-    <string name="key_reset">Usar a embutida</string>
+    <string name="key_reset">Redefinir chave</string>
     <string name="key_password">Senha do keystore</string>
     <string name="key_alias">Alias da chave (opcional)</string>
     <string name="key_created">Uma nova chave foi criada</string>
     <string name="key_imported">Chave importada</string>
     <string name="key_exported">Chave exportada</string>
-    <string name="key_reset_done">De volta à chave embutida</string>
+    <string name="key_reset_done">Uma nova chave privada foi criada</string>
     <string name="key_failed">Falha na operação com a chave: %1$s</string>
     <string name="key_replace_title">Substituir sua chave?</string>
-    <string name="key_replace_message">Os clones assinados com a chave atual deixarão de ser listados e atualizados, a não ser que você importe essa chave de novo. Exporte-a antes, caso venha a precisar.</string>
+    <string name="key_replace_message">Alterar ou perder esta chave impede atualizações no local dos clones assinados com ela; reinstalá-los pode apagar seus dados. Exporte um backup antes. O APK Toolbox é fornecido sem garantia.</string>
     <string name="key_replace_confirm">Substituir</string>
     <string name="clone_badge">Marcar o ícone com um ponto</string>
     <string name="clone_rename_alias">Endereçamento pelo nome do clone</string>

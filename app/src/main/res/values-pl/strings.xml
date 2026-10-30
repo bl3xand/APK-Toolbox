@@ -69,6 +69,11 @@
         <item>co 3 miesiące</item>
         <item>co 6 miesięcy</item>
         <item>raz w roku</item>
+        <item>co 4 godziny</item>
+        <item>co 6 godzin</item>
+        <item>co 8 godzin</item>
+        <item>co 12 godzin</item>
+        <item>co 24 godziny</item>
     </string-array>
     <string name="channel_updates">Aktualizacje klonów</string>
     <string name="settings_play_protect_button">Ustawienia Play Protect</string>
@@ -133,22 +138,22 @@
 
     <string name="settings_signing_key">Klucz podpisu</string>
     <string name="key_bundled_title">Wbudowany klucz</string>
-    <string name="key_bundled_description">Klony i scalone pliki APK są podpisywane kluczem dostarczonym z aplikacją. Jest ten sam dla wszystkich i publiczny. Utwórz albo zaimportuj własny klucz, aby podpisywać czymś, co masz tylko ty.</string>
+    <string name="key_bundled_description">Stary klucz pozostaje wyłącznie do aktualizowania klonów z wcześniejszych wersji APK-Toolbox. Nowe kompilacje używają prywatnego klucza tej instalacji.</string>
     <string name="key_custom_title">Własny klucz</string>
     <string name="key_custom_description">%1$s\nSHA-256 %2$s…\nWyeksportuj go i zachowaj plik: bez niego klony podpisane tym kluczem nie będą się dały zaktualizować po ponownej instalacji aplikacji.</string>
     <string name="key_create">Utwórz</string>
     <string name="key_import">Importuj</string>
     <string name="key_export">Eksportuj</string>
-    <string name="key_reset">Użyj wbudowanego</string>
+    <string name="key_reset">Resetuj klucz</string>
     <string name="key_password">Hasło keystore</string>
     <string name="key_alias">Alias klucza (nieobowiązkowy)</string>
     <string name="key_created">Utworzono nowy klucz</string>
     <string name="key_imported">Klucz zaimportowany</string>
     <string name="key_exported">Klucz wyeksportowany</string>
-    <string name="key_reset_done">Z powrotem wbudowany klucz</string>
+    <string name="key_reset_done">Utworzono nowy klucz prywatny</string>
     <string name="key_failed">Operacja na kluczu nie powiodła się: %1$s</string>
     <string name="key_replace_title">Zastąpić własny klucz?</string>
-    <string name="key_replace_message">Klony podpisane obecnym kluczem przestaną być wymieniane i aktualizowane, dopóki znów nie zaimportujesz tego klucza. Wyeksportuj go najpierw, jeśli może się przydać.</string>
+    <string name="key_replace_message">Zmiana lub utrata tego klucza uniemożliwia aktualizację klonów nim podpisanych; ponowna instalacja może usunąć ich dane. Najpierw wyeksportuj kopię. APK Toolbox jest dostarczany bez gwarancji.</string>
     <string name="key_replace_confirm">Zastąp</string>
     <string name="clone_badge">Oznacz ikonę kropką</string>
     <string name="clone_rename_alias">Adresowanie po nazwie klona</string>

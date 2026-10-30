@@ -69,6 +69,11 @@
         <item>كل 3 أشهر</item>
         <item>كل 6 أشهر</item>
         <item>مرة سنويًا</item>
+        <item>كل 4 ساعات</item>
+        <item>كل 6 ساعات</item>
+        <item>كل 8 ساعات</item>
+        <item>كل 12 ساعة</item>
+        <item>كل 24 ساعة</item>
     </string-array>
     <string name="channel_updates">تحديثات النسخ المطابقة</string>
     <string name="settings_play_protect_button">إعدادات Play Protect</string>
@@ -133,22 +138,22 @@
 
     <string name="settings_signing_key">مفتاح التوقيع</string>
     <string name="key_bundled_title">المفتاح المدمج</string>
-    <string name="key_bundled_description">تُوقَّع النسخ المطابقة وملفات APK المدموجة بالمفتاح الذي يأتي مع التطبيق. هو نفسه للجميع ومعلن. أنشئ مفتاحًا خاصًا بك أو استورد واحدًا لتوقَّع الأشياء بما لا تملكه أنت وحدك.</string>
+    <string name="key_bundled_description">مفتاح قديم محفوظ فقط لتحديث النسخ المستنسخة من إصدارات APK-Toolbox السابقة. تستخدم الإصدارات الجديدة مفتاح التثبيت الخاص.</string>
     <string name="key_custom_title">مفتاحك الخاص</string>
     <string name="key_custom_description">%1$s\nSHA-256 %2$s…\nصدِّره واحتفظ بالملف: بدونه لا يمكن تحديث النسخ المطابقة الموقَّعة بهذا المفتاح بعد إعادة تثبيت التطبيق.</string>
     <string name="key_create">إنشاء</string>
     <string name="key_import">استيراد</string>
     <string name="key_export">تصدير</string>
-    <string name="key_reset">استخدام المدمج</string>
+    <string name="key_reset">إعادة تعيين المفتاح</string>
     <string name="key_password">كلمة سر مخزن المفاتيح</string>
     <string name="key_alias">اسم المفتاح المستعار (اختياري)</string>
     <string name="key_created">أُنشئ مفتاح جديد</string>
     <string name="key_imported">استُورد المفتاح</string>
     <string name="key_exported">صُدِّر المفتاح</string>
-    <string name="key_reset_done">عاد إلى المفتاح المدمج</string>
+    <string name="key_reset_done">تم إنشاء مفتاح خاص جديد</string>
     <string name="key_failed">فشلت عملية المفتاح: %1$s</string>
     <string name="key_replace_title">استبدال مفتاحك؟</string>
-    <string name="key_replace_message">النسخ المطابقة الموقَّعة بالمفتاح الحالي ستختفي من القائمة وتتوقف عن التحديث حتى تستورد ذلك المفتاح مجددًا. صدِّره أولًا إن قد تحتاجه.</string>
+    <string name="key_replace_message">تغيير هذا المفتاح أو فقدانه يمنع تحديث النسخ الموقعة به دون إعادة تثبيت، وقد يؤدي ذلك إلى فقدان بياناتها. صدّر نسخة احتياطية أولاً. لا يقدم APK Toolbox أي ضمان.</string>
     <string name="key_replace_confirm">استبدال</string>
     <string name="clone_badge">وسم الأيقونة بنقطة</string>
     <string name="clone_rename_alias">العنونة باسم النسخة المطابقة</string>
