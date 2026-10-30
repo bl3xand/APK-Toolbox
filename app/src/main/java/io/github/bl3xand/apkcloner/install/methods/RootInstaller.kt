@@ -15,6 +15,7 @@ object RootInstaller : Installer {
 
     override suspend fun install(
         context: Context, apks: List<File>, background: Boolean, label: String, installerPackage: String?,
+        requestUpdateOwnership: Boolean,
     ): InstallOutcome {
         AppLog.info("Root install: ${label.ifBlank { apks.firstOrNull()?.name ?: "?" }} (${apks.size} file(s))")
         val error = Root.install(apks, installerPackage)
