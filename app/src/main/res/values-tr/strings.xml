@@ -232,4 +232,8 @@
     <string name="clone_permission_absent">Bu sürümde istenmiyor. Geri gelirse kapalı kalır.</string>
     <string name="clone_permission_new">Bu sürümde yeni</string>
     <string name="button_done">Tamam</string>
+    <string name="settings_anchor_hour">Yerel gece yarısından sonraki ilk denetim: %1$02d:00</string>
+    <string name="settings_schedule_inexact">Arka plan denetimleri kesin zamanlı değildir. Doze, pil/ağ kısıtlamaları ve cihaz politikaları bunları geciktirebilir.</string>
+    <string name="key_unavailable_title">İmza anahtarı kullanılamıyor</string>
+    <string name="key_unavailable_description">Kaydedilen anahtar çözülemedi. İmzalanan klonları güncellemeye devam etmek için yedeği içe aktarın veya anahtarı açıkça sıfırlayın; klonlar bozulabilir ve verileri kaybolabilir.</string>
 </resources>

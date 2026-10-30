@@ -234,4 +234,8 @@
     <string name="clone_permission_absent">Esta versión no la pide. Si vuelve, se queda apagado.</string>
     <string name="clone_permission_new">Nueva en esta versión</string>
     <string name="button_done">Hecho</string>
+    <string name="settings_anchor_hour">Primera comprobación después de la medianoche local: %1$02d:00</string>
+    <string name="settings_schedule_inexact">Las comprobaciones en segundo plano no son exactas. Doze y las restricciones de batería, red o del dispositivo pueden retrasarlas.</string>
+    <string name="key_unavailable_title">Clave de firma no disponible</string>
+    <string name="key_unavailable_description">No se pudo descifrar la clave guardada. Importa su copia para seguir actualizando los clones firmados con ella o restablece la clave explícitamente; los clones pueden dejar de funcionar y perder sus datos.</string>
 </resources>

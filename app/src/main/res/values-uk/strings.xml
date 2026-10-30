@@ -236,4 +236,8 @@
     <string name="clone_permission_absent">У цій версії не запитується. Якщо повернеться — залишиться вимкненим.</string>
     <string name="clone_permission_new">Нове в цій версії</string>
     <string name="button_done">Готово</string>
+    <string name="settings_anchor_hour">Перша перевірка після місцевої опівночі: %1$02d:00</string>
+    <string name="settings_schedule_inexact">Фонові перевірки неточні. Doze, обмеження батареї й мережі та політики пристрою можуть їх затримати.</string>
+    <string name="key_unavailable_title">Ключ підпису недоступний</string>
+    <string name="key_unavailable_description">Не вдалося розшифрувати збережений ключ. Імпортуйте його резервну копію, щоб і надалі оновлювати підписані ним клони, або явно скиньте ключ; клони можуть перестати працювати, а їхні дані — втратитися.</string>
 </resources>

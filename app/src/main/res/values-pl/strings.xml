@@ -236,4 +236,8 @@
     <string name="clone_permission_absent">W tej wersji nie jest wymagane. Jeśli wróci, zostaje wyłączone.</string>
     <string name="clone_permission_new">Nowe w tej wersji</string>
     <string name="button_done">Gotowe</string>
+    <string name="settings_anchor_hour">Pierwsze sprawdzenie po lokalnej północy: %1$02d:00</string>
+    <string name="settings_schedule_inexact">Sprawdzanie w tle nie jest dokładne. Doze oraz ograniczenia baterii, sieci i urządzenia mogą je opóźnić.</string>
+    <string name="key_unavailable_title">Klucz podpisu niedostępny</string>
+    <string name="key_unavailable_description">Nie można odszyfrować zapisanego klucza. Zaimportuj jego kopię, aby nadal aktualizować podpisane nim klony, albo jawnie zresetuj klucz; klony mogą przestać działać i utracić dane.</string>
 </resources>

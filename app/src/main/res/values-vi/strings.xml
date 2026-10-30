@@ -230,4 +230,8 @@
     <string name="clone_permission_absent">Không yêu cầu ở phiên bản này. Nếu quay lại thì vẫn để tắt.</string>
     <string name="clone_permission_new">Mới ở phiên bản này</string>
     <string name="button_done">Xong</string>
+    <string name="settings_anchor_hour">Lần kiểm tra đầu tiên sau nửa đêm địa phương: %1$02d:00</string>
+    <string name="settings_schedule_inexact">Kiểm tra nền không chạy chính xác theo giờ. Doze, giới hạn pin/mạng và chính sách thiết bị có thể làm chậm chúng.</string>
+    <string name="key_unavailable_title">Không có khóa ký</string>
+    <string name="key_unavailable_description">Không thể giải mã khóa đã lưu. Hãy nhập bản sao lưu để tiếp tục cập nhật các bản sao đã ký bằng khóa này hoặc chủ động đặt lại khóa; bản sao có thể hỏng và mất dữ liệu.</string>
 </resources>

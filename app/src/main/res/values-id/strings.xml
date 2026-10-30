@@ -230,4 +230,8 @@
     <string name="clone_permission_absent">Tidak diminta di versi ini. Tetap mati bila kembali.</string>
     <string name="clone_permission_new">Baru di versi ini</string>
     <string name="button_done">Selesai</string>
+    <string name="settings_anchor_hour">Pemeriksaan pertama setelah tengah malam setempat: %1$02d:00</string>
+    <string name="settings_schedule_inexact">Pemeriksaan latar belakang tidak tepat waktu. Doze serta pembatasan baterai, jaringan, atau perangkat dapat menundanya.</string>
+    <string name="key_unavailable_title">Kunci tanda tangan tidak tersedia</string>
+    <string name="key_unavailable_description">Kunci tersimpan tidak dapat didekripsi. Impor cadangannya untuk terus memperbarui klon yang ditandatangani dengannya, atau atur ulang kunci secara eksplisit; klon dapat rusak dan datanya hilang.</string>
 </resources>

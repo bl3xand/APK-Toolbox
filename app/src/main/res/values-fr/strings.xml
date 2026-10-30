@@ -234,4 +234,8 @@
     <string name="clone_permission_absent">Non demandée par cette version. Restera désactivée si elle revient.</string>
     <string name="clone_permission_new">Nouvelle dans cette version</string>
     <string name="button_done">Terminé</string>
+    <string name="settings_anchor_hour">Première vérification après minuit local : %1$02d:00</string>
+    <string name="settings_schedule_inexact">Les vérifications en arrière-plan sont imprécises. Doze et les restrictions de batterie, réseau ou appareil peuvent les retarder.</string>
+    <string name="key_unavailable_title">Clé de signature indisponible</string>
+    <string name="key_unavailable_description">Impossible de déchiffrer la clé enregistrée. Importez sa sauvegarde pour continuer à mettre à jour les clones signés avec elle, ou réinitialisez explicitement la clé ; les clones peuvent être endommagés et perdre leurs données.</string>
 </resources>

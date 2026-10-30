@@ -230,4 +230,8 @@
     <string name="clone_permission_absent">このバージョンでは要求されません。戻ってきてもオフのままです。</string>
     <string name="clone_permission_new">このバージョンで新しく追加</string>
     <string name="button_done">完了</string>
+    <string name="settings_anchor_hour">現地時間の午前0時以降の最初の確認: %1$02d:00</string>
+    <string name="settings_schedule_inexact">バックグラウンド確認の時刻は正確ではありません。Doze、バッテリー/ネットワーク制限、端末のポリシーにより遅れることがあります。</string>
+    <string name="key_unavailable_title">署名鍵を利用できません</string>
+    <string name="key_unavailable_description">保存された鍵を復号できませんでした。署名済みクローンの更新を続けるにはバックアップをインポートするか、明示的に鍵をリセットしてください。クローンの破損やデータ消失のおそれがあります。</string>
 </resources>

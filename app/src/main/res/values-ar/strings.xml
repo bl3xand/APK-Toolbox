@@ -240,4 +240,8 @@
     <string name="clone_permission_absent">لا تطلبه هذه النسخة. إن عاد بقي متوقفًا.</string>
     <string name="clone_permission_new">جديد في هذه النسخة</string>
     <string name="button_done">تم</string>
+    <string name="settings_anchor_hour">وقت أول فحص بعد منتصف الليل المحلي: %1$02d:00</string>
+    <string name="settings_schedule_inexact">مواعيد الفحص في الخلفية غير دقيقة. قد يؤخرها وضع Doze وقيود البطارية/الشبكة وسياسات الجهاز.</string>
+    <string name="key_unavailable_title">مفتاح التوقيع غير متاح</string>
+    <string name="key_unavailable_description">تعذّر فك تشفير المفتاح المحفوظ. استورد نسخته الاحتياطية لمتابعة تحديث النسخ الموقعة به، أو أعد تعيين المفتاح صراحةً؛ فقد تتعطل النسخ وتُفقد بياناتها.</string>
 </resources>

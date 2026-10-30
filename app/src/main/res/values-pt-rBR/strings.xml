@@ -234,4 +234,8 @@
     <string name="clone_permission_absent">Não é pedida nesta versão. Se voltar, continua desligada.</string>
     <string name="clone_permission_new">Nova nesta versão</string>
     <string name="button_done">Pronto</string>
+    <string name="settings_anchor_hour">Primeira verificação após a meia-noite local: %1$02d:00</string>
+    <string name="settings_schedule_inexact">As verificações em segundo plano são inexatas. Doze e restrições de bateria, rede ou dispositivo podem atrasá-las.</string>
+    <string name="key_unavailable_title">Chave de assinatura indisponível</string>
+    <string name="key_unavailable_description">Não foi possível descriptografar a chave salva. Importe o backup para continuar atualizando clones assinados com ela ou redefina a chave explicitamente; os clones podem parar de funcionar e perder dados.</string>
 </resources>

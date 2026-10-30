@@ -232,4 +232,8 @@
     <string name="clone_permission_absent">Non chiesto da questa versione. Resta spento se torna.</string>
     <string name="clone_permission_new">Nuovo in questa versione</string>
     <string name="button_done">Fatto</string>
+    <string name="settings_anchor_hour">Primo controllo dopo la mezzanotte locale: %1$02d:00</string>
+    <string name="settings_schedule_inexact">I controlli in background sono imprecisi. Doze e le limitazioni di batteria, rete o dispositivo possono ritardarli.</string>
+    <string name="key_unavailable_title">Chiave di firma non disponibile</string>
+    <string name="key_unavailable_description">Impossibile decifrare la chiave salvata. Importane il backup per continuare ad aggiornare i cloni firmati con essa oppure reimposta esplicitamente la chiave; i cloni potrebbero danneggiarsi e perdere i dati.</string>
 </resources>

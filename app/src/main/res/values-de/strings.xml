@@ -232,4 +232,8 @@
     <string name="clone_permission_absent">Wird von dieser Version nicht verlangt. Bleibt aus, falls es wiederkommt.</string>
     <string name="clone_permission_new">Neu in dieser Version</string>
     <string name="button_done">Fertig</string>
+    <string name="settings_anchor_hour">Erste Prüfung nach lokaler Mitternacht: %1$02d:00</string>
+    <string name="settings_schedule_inexact">Hintergrundprüfungen sind ungenau. Doze sowie Akku-, Netzwerk- und Geräterichtlinien können sie verzögern.</string>
+    <string name="key_unavailable_title">Signaturschlüssel nicht verfügbar</string>
+    <string name="key_unavailable_description">Der gespeicherte Schlüssel konnte nicht entschlüsselt werden. Importiere die Sicherung, um damit signierte Klone weiter zu aktualisieren, oder setze den Schlüssel ausdrücklich zurück; Klone können dadurch beschädigt werden und Daten verlieren.</string>
 </resources>
