@@ -69,6 +69,11 @@
         <item>alle 3 Monate</item>
         <item>alle 6 Monate</item>
         <item>einmal pro Jahr</item>
+        <item>alle 4 Stunden</item>
+        <item>alle 6 Stunden</item>
+        <item>alle 8 Stunden</item>
+        <item>alle 12 Stunden</item>
+        <item>alle 24 Stunden</item>
     </string-array>
     <string name="channel_updates">Klon-Aktualisierungen</string>
     <string name="settings_play_protect_button">Play-Schutz-Einstellungen</string>
@@ -133,22 +138,22 @@
 
     <string name="settings_signing_key">Signaturschlüssel</string>
     <string name="key_bundled_title">Eingebauter Schlüssel</string>
-    <string name="key_bundled_description">Klone und zusammengeführte APKs werden mit dem Schlüssel signiert, der mit der App mitkommt. Er ist für alle derselbe und öffentlich. Erstellen oder importieren Sie einen eigenen Schlüssel, um mit etwas zu signieren, das nur Sie haben.</string>
+    <string name="key_bundled_description">Alter Schlüssel, nur zum Aktualisieren von Klonen früherer APK-Toolbox-Versionen. Neue Builds verwenden den privaten Schlüssel dieser Installation.</string>
     <string name="key_custom_title">Ihr eigener Schlüssel</string>
     <string name="key_custom_description">%1$s\nSHA-256 %2$s…\nExportieren Sie ihn und bewahren Sie die Datei auf: Ohne ihn können Klone, die mit diesem Schlüssel signiert sind, nach einer Neuinstallation der App nicht aktualisiert werden.</string>
     <string name="key_create">Erstellen</string>
     <string name="key_import">Importieren</string>
     <string name="key_export">Exportieren</string>
-    <string name="key_reset">Eingebauten verwenden</string>
+    <string name="key_reset">Schlüssel zurücksetzen</string>
     <string name="key_password">Keystore-Passwort</string>
     <string name="key_alias">Schlüssel-Alias (optional)</string>
     <string name="key_created">Ein neuer Schlüssel wurde erstellt</string>
     <string name="key_imported">Schlüssel importiert</string>
     <string name="key_exported">Schlüssel exportiert</string>
-    <string name="key_reset_done">Zurück zum eingebauten Schlüssel</string>
+    <string name="key_reset_done">Neuer privater Schlüssel erstellt</string>
     <string name="key_failed">Schlüsseloperation fehlgeschlagen: %1$s</string>
     <string name="key_replace_title">Ihren Schlüssel ersetzen?</string>
-    <string name="key_replace_message">Klone, die mit dem aktuellen Schlüssel signiert sind, werden nicht mehr aufgeführt oder aktualisiert, solange Sie diesen Schlüssel nicht wieder importieren. Exportieren Sie ihn zuerst, falls Sie ihn noch brauchen könnten.</string>
+    <string name="key_replace_message">Ein Ändern oder Verlieren dieses Schlüssels verhindert In-place-Updates der damit signierten Klone; eine Neuinstallation kann deren Daten löschen. Exportiere zuerst eine Sicherung. APK Toolbox übernimmt keine Gewähr.</string>
     <string name="key_replace_confirm">Ersetzen</string>
     <string name="clone_badge">Symbol mit einem Punkt markieren</string>
     <string name="clone_rename_alias">Adressierung über den Klonnamen</string>
@@ -227,4 +232,8 @@
     <string name="clone_permission_absent">Wird von dieser Version nicht verlangt. Bleibt aus, falls es wiederkommt.</string>
     <string name="clone_permission_new">Neu in dieser Version</string>
     <string name="button_done">Fertig</string>
+    <string name="settings_anchor_hour">Erste Prüfung nach lokaler Mitternacht: %1$02d:00</string>
+    <string name="settings_schedule_inexact">Hintergrundprüfungen sind ungenau. Doze sowie Akku-, Netzwerk- und Geräterichtlinien können sie verzögern.</string>
+    <string name="key_unavailable_title">Signaturschlüssel nicht verfügbar</string>
+    <string name="key_unavailable_description">Der gespeicherte Schlüssel konnte nicht entschlüsselt werden. Importiere die Sicherung, um damit signierte Klone weiter zu aktualisieren, oder setze den Schlüssel ausdrücklich zurück; Klone können dadurch beschädigt werden und Daten verlieren.</string>
 </resources>

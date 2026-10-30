@@ -63,7 +63,7 @@ class ControlsWalkTest : BaseUiTest() {
             ?: device.findObject(By.res(packageName, "sliderInterval"))
             ?: error("No interval slider. Screen:\n${dumpVisibleTexts()}")
         val bounds = slider.visibleBounds
-        val stops = 8 // AppSettings.CHECK_INTERVAL_DAYS.size; the label formats each stop
+        val stops = 13 // AppSettings.CHECK_INTERVAL_HOURS.size; the label formats each stop
         for (step in 0 until stops) {
             val x = bounds.left + (bounds.width() * step / (stops - 1))
             device.swipe(x, bounds.centerY(), x, bounds.centerY(), 20)

@@ -60,6 +60,8 @@
 
     <string name="settings_title">设置</string>
     <string name="settings_check_interval">检查更新：%1$s</string>
+    <string name="settings_anchor_hour">本地午夜后的首次检查时间：%1$02d:00</string>
+    <string name="settings_schedule_inexact">后台检查时间并不精确。Doze、省电/网络限制及设备策略可能会延迟检查。</string>
     <string-array name="check_intervals">
         <item>每天一次</item>
         <item>每 3 天一次</item>
@@ -69,6 +71,11 @@
         <item>每 3 个月一次</item>
         <item>每 6 个月一次</item>
         <item>每年一次</item>
+        <item>每 4 小时</item>
+        <item>每 6 小时</item>
+        <item>每 8 小时</item>
+        <item>每 12 小时</item>
+        <item>每 24 小时</item>
     </string-array>
 
     <string name="channel_updates">克隆应用更新</string>
@@ -134,22 +141,24 @@
 
     <string name="settings_signing_key">签名密钥</string>
     <string name="key_bundled_title">内置密钥</string>
-    <string name="key_bundled_description">克隆应用和合并后的 APK 使用应用自带的密钥签名。该密钥人人相同且是公开的。创建或导入自己的密钥，即可使用只有你拥有的密钥签名。</string>
+    <string name="key_bundled_description">旧密钥仅保留用于更新较早 APK-Toolbox 版本创建的克隆。新构建使用此安装实例的私有密钥。</string>
+    <string name="key_unavailable_title">签名密钥不可用</string>
+    <string name="key_unavailable_description">无法解密已保存的密钥。导入备份以继续更新由该密钥签名的克隆，或明确重置密钥；重置可能导致克隆无法使用并丢失其数据。</string>
     <string name="key_custom_title">自己的密钥</string>
     <string name="key_custom_description">%1$s\nSHA-256 %2$s…\n请导出并保存该文件：否则重新安装应用后，用此密钥签名的克隆应用将无法更新。</string>
     <string name="key_create">创建</string>
     <string name="key_import">导入</string>
     <string name="key_export">导出</string>
-    <string name="key_reset">使用内置密钥</string>
+    <string name="key_reset">重置密钥</string>
     <string name="key_password">密钥库密码</string>
     <string name="key_alias">密钥别名（可选）</string>
     <string name="key_created">已创建新密钥</string>
     <string name="key_imported">密钥已导入</string>
     <string name="key_exported">密钥已导出</string>
-    <string name="key_reset_done">已恢复为内置密钥</string>
+    <string name="key_reset_done">已创建新的私有密钥</string>
     <string name="key_failed">密钥操作失败：%1$s</string>
     <string name="key_replace_title">替换你的密钥？</string>
-    <string name="key_replace_message">用当前密钥签名的克隆应用将不再显示，也无法更新，除非重新导入该密钥。如果以后可能需要，请先导出。</string>
+    <string name="key_replace_message">更改或丢失此密钥将无法就地更新由它签名的克隆；重新安装可能导致克隆数据丢失。请先导出备份。APK Toolbox 不提供任何担保。</string>
     <string name="key_replace_confirm">替换</string>
     <string name="clone_badge">用圆点标记图标</string>
     <string name="clone_rename_alias">按克隆包名寻址</string>

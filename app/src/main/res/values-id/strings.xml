@@ -69,6 +69,11 @@
         <item>tiap 3 bulan</item>
         <item>tiap 6 bulan</item>
         <item>sekali setahun</item>
+        <item>setiap 4 jam</item>
+        <item>setiap 6 jam</item>
+        <item>setiap 8 jam</item>
+        <item>setiap 12 jam</item>
+        <item>setiap 24 jam</item>
     </string-array>
     <string name="channel_updates">Pembaruan klon</string>
     <string name="settings_play_protect_button">Pengaturan Play Protect</string>
@@ -133,22 +138,22 @@
 
     <string name="settings_signing_key">Kunci tanda tangan</string>
     <string name="key_bundled_title">Kunci bawaan</string>
-    <string name="key_bundled_description">Klon dan APK gabungan ditandatangani dengan kunci yang ikut aplikasi. Sama untuk semua orang dan bersifat publik. Buat atau impor kunci sendiri untuk menandatangani dengan sesuatu yang hanya Anda miliki.</string>
+    <string name="key_bundled_description">Kunci lama hanya disimpan untuk memperbarui klon dari APK-Toolbox versi lama. Build baru memakai kunci privat instalasi ini.</string>
     <string name="key_custom_title">Kunci Anda sendiri</string>
     <string name="key_custom_description">%1$s\nSHA-256 %2$s…\nEkspor dan simpan berkasnya: tanpanya, klon yang ditandatangani kunci ini tidak bisa diperbarui setelah aplikasi dipasang ulang.</string>
     <string name="key_create">Buat</string>
     <string name="key_import">Impor</string>
     <string name="key_export">Ekspor</string>
-    <string name="key_reset">Pakai bawaan</string>
+    <string name="key_reset">Atur ulang kunci</string>
     <string name="key_password">Kata sandi keystore</string>
     <string name="key_alias">Alias kunci (opsional)</string>
     <string name="key_created">Kunci baru dibuat</string>
     <string name="key_imported">Kunci diimpor</string>
     <string name="key_exported">Kunci diekspor</string>
-    <string name="key_reset_done">Kembali ke kunci bawaan</string>
+    <string name="key_reset_done">Kunci privat baru dibuat</string>
     <string name="key_failed">Operasi kunci gagal: %1$s</string>
     <string name="key_replace_title">Ganti kunci Anda?</string>
-    <string name="key_replace_message">Klon yang ditandatangani kunci saat ini tidak akan lagi tercantum atau diperbarui sampai Anda mengimpor kunci itu lagi. Ekspor dulu bila mungkin diperlukan.</string>
+    <string name="key_replace_message">Mengubah atau kehilangan kunci ini mencegah pembaruan klon yang ditandatangani dengannya; pemasangan ulang dapat menghapus datanya. Ekspor cadangan terlebih dahulu. APK Toolbox tanpa garansi.</string>
     <string name="key_replace_confirm">Ganti</string>
     <string name="clone_badge">Tandai ikon dengan titik</string>
     <string name="clone_rename_alias">Pengalamatan menurut nama klon</string>
@@ -225,4 +230,8 @@
     <string name="clone_permission_absent">Tidak diminta di versi ini. Tetap mati bila kembali.</string>
     <string name="clone_permission_new">Baru di versi ini</string>
     <string name="button_done">Selesai</string>
+    <string name="settings_anchor_hour">Pemeriksaan pertama setelah tengah malam setempat: %1$02d:00</string>
+    <string name="settings_schedule_inexact">Pemeriksaan latar belakang tidak tepat waktu. Doze serta pembatasan baterai, jaringan, atau perangkat dapat menundanya.</string>
+    <string name="key_unavailable_title">Kunci tanda tangan tidak tersedia</string>
+    <string name="key_unavailable_description">Kunci tersimpan tidak dapat didekripsi. Impor cadangannya untuk terus memperbarui klon yang ditandatangani dengannya, atau atur ulang kunci secara eksplisit; klon dapat rusak dan datanya hilang.</string>
 </resources>

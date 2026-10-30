@@ -120,7 +120,7 @@ class CloneController(
 
     fun installResult() {
         val apks = (_state.value as? CloneState.Done)?.apks ?: return
-        output.installInBackground(apks)
+        output.installInBackground(apks, requestUpdateOwnership = true)
     }
 
     fun saveResult(uri: Uri) {

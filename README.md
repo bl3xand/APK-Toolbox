@@ -159,7 +159,7 @@ A patch is a change to the clone's code, made while it is built. The picker live
 
 One group of settings covers both tracked apps and clones:
 
-- **Check for updates** — a background check, from once a day to once a year, for **Apps from sources**, **Clones** or both. It survives reboots. On its own it only notifies. **Check now** runs it at once and reports everything that is waiting.
+- **Check for updates** — a background check every 4, 6, 8, 12 or 24 hours, or at the established daily-to-yearly intervals, for **Apps from sources**, **Clones** or both. The first eligible run is anchored to a chosen local hour (01:00 by default). WorkManager is inexact: Doze, battery/network constraints and device restrictions can delay a check. It survives reboots. On its own it only notifies. **Check now** runs it at once and reports everything that is waiting.
 - **Install automatically** — install what was found without asking. **Wait for Wi-Fi** and **Wait for the charger** hold an update back until the condition is met and then install it by themselves.
 - **Installation method**:
   - **Standard** — the system installer. Without a prompt it updates only what APK Toolbox installed itself and what targets a recent Android version. Clones, being re-signed, are additionally held back while Google Play Protect app scanning is on.
@@ -195,9 +195,11 @@ Merging decodes the app's resource tables in memory, which takes about twenty ti
 
 ## Signing key
 
-Everything APK Toolbox produces has to be signed, and the original signature cannot be kept: it stops matching as soon as the APK is modified. Out of the box a built-in key is used. It is the same for every copy of the app and its private half is in this repository, so anyone could sign with it.
+Everything APK Toolbox produces has to be signed, and the original signature cannot be kept: it stops matching as soon as the APK is modified. A fresh installation creates a private signing key, encrypted in app-private storage, and keeps it across app restarts and upgrades. The historical built-in key remains available only to recognize/update clones created by older versions. It is shared and public, so it is not used for new builds.
 
-In settings you can **Create** a key of your own or **Import** one from a PKCS#12 (`.p12`, `.pfx`) or BKS keystore. Your key is stored encrypted in the app's private storage. **Export** it and keep the file: clones can only be updated with the key they were signed with, and the key is gone if the app is uninstalled. Clones made with the built-in key keep updating with it.
+In settings you can **Create** another key or **Import** one from a PKCS#12 (`.p12`, `.pfx`) or BKS keystore. **Export** a password-protected backup and keep it somewhere safe: changing or losing a key prevents in-place clone updates signed with it and may require reinstalling those clones, which can lose their data. The app cannot recover a lost key. Resetting/replacing a key asks for confirmation. No warranty is provided; APK Toolbox remains GPL-3.0 licensed.
+
+Background installs use PackageInstaller's unattended update path only when Android considers the installed clone and installer/update-owner state eligible and the target SDK meets that Android release's threshold. On Android 14 and newer, update ownership is requested only for the first PackageInstaller install of a clone actually built by APK Toolbox, when the platform permission is available. Initial installs, root/Shizuku installs, unsupported or ineligible cases, and rejected unattended sessions retain an interactive fallback. Android policy and device restrictions can always require confirmation; unattended installation is not guaranteed.
 
 <p align="center">
   <img src="docs/screenshots/settings-key.jpg" width="30%" alt="Signing key" />
@@ -214,7 +216,7 @@ Every release APK is signed with the author's key. Verify it before installing �
 06:95:1F:0B:6F:94:7D:C0:C1:CD:C2:AC:CF:C7:9B:3B:DB:9F:6D:B1:57:6E:23:D7:94:68:EE:25:58:26:6A:4C
 ```
 
-Clones you build yourself are signed with the built-in key or your own — that is a different certificate and a different story, see above.
+Clones you build yourself are signed with this installation's private key (or an imported key) — that is a different certificate and a different story, see above.
 
 ## Good to know
 

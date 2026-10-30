@@ -69,6 +69,11 @@
         <item>cada 3 meses</item>
         <item>cada 6 meses</item>
         <item>una vez al año</item>
+        <item>cada 4 horas</item>
+        <item>cada 6 horas</item>
+        <item>cada 8 horas</item>
+        <item>cada 12 horas</item>
+        <item>cada 24 horas</item>
     </string-array>
     <string name="channel_updates">Actualizaciones de clones</string>
     <string name="settings_play_protect_button">Ajustes de Play Protect</string>
@@ -133,22 +138,22 @@
 
     <string name="settings_signing_key">Clave de firma</string>
     <string name="key_bundled_title">Clave integrada</string>
-    <string name="key_bundled_description">Los clones y los APK fusionados se firman con la clave que trae la aplicación. Es la misma para todos y pública. Cree o importe una clave propia para firmar con algo que solo usted tenga.</string>
+    <string name="key_bundled_description">La clave antigua solo se conserva para actualizar clones de versiones anteriores de APK-Toolbox. Las nuevas compilaciones usan la clave privada de esta instalación.</string>
     <string name="key_custom_title">Su propia clave</string>
     <string name="key_custom_description">%1$s\nSHA-256 %2$s…\nExpórtela y guarde el archivo: sin ella, los clones firmados con esta clave no podrán actualizarse tras reinstalar la aplicación.</string>
     <string name="key_create">Crear</string>
     <string name="key_import">Importar</string>
     <string name="key_export">Exportar</string>
-    <string name="key_reset">Usar la integrada</string>
+    <string name="key_reset">Restablecer clave</string>
     <string name="key_password">Contraseña del almacén</string>
     <string name="key_alias">Alias de la clave (opcional)</string>
     <string name="key_created">Se creó una clave nueva</string>
     <string name="key_imported">Clave importada</string>
     <string name="key_exported">Clave exportada</string>
-    <string name="key_reset_done">De vuelta a la clave integrada</string>
+    <string name="key_reset_done">Se creó una nueva clave privada</string>
     <string name="key_failed">Fallo de la operación con la clave: %1$s</string>
     <string name="key_replace_title">¿Reemplazar su clave?</string>
-    <string name="key_replace_message">Los clones firmados con la clave actual dejarán de aparecer y de actualizarse hasta que importe esa clave de nuevo. Expórtela primero por si la necesita.</string>
+    <string name="key_replace_message">Cambiar o perder esta clave impide actualizar los clones firmados con ella sin reinstalarlos, lo que puede borrar sus datos. Exporta una copia primero. APK Toolbox no ofrece garantías.</string>
     <string name="key_replace_confirm">Reemplazar</string>
     <string name="clone_badge">Marcar el icono con un punto</string>
     <string name="clone_rename_alias">Direccionamiento por el nombre del clon</string>
@@ -229,4 +234,8 @@
     <string name="clone_permission_absent">Esta versión no la pide. Si vuelve, se queda apagado.</string>
     <string name="clone_permission_new">Nueva en esta versión</string>
     <string name="button_done">Hecho</string>
+    <string name="settings_anchor_hour">Primera comprobación después de la medianoche local: %1$02d:00</string>
+    <string name="settings_schedule_inexact">Las comprobaciones en segundo plano no son exactas. Doze y las restricciones de batería, red o del dispositivo pueden retrasarlas.</string>
+    <string name="key_unavailable_title">Clave de firma no disponible</string>
+    <string name="key_unavailable_description">No se pudo descifrar la clave guardada. Importa su copia para seguir actualizando los clones firmados con ella o restablece la clave explícitamente; los clones pueden dejar de funcionar y perder sus datos.</string>
 </resources>

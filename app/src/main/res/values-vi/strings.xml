@@ -69,6 +69,11 @@
         <item>ba tháng một lần</item>
         <item>sáu tháng một lần</item>
         <item>mỗi năm một lần</item>
+        <item>mỗi 4 giờ</item>
+        <item>mỗi 6 giờ</item>
+        <item>mỗi 8 giờ</item>
+        <item>mỗi 12 giờ</item>
+        <item>mỗi 24 giờ</item>
     </string-array>
     <string name="channel_updates">Cập nhật bản sao</string>
     <string name="settings_play_protect_button">Cài đặt Play Protect</string>
@@ -133,22 +138,22 @@
 
     <string name="settings_signing_key">Khóa ký</string>
     <string name="key_bundled_title">Khóa dựng sẵn</string>
-    <string name="key_bundled_description">Bản sao và các tệp APK đã gộp được ký bằng khóa đi kèm ứng dụng. Nó giống nhau cho mọi người và công khai. Hãy tạo hoặc nhập khóa riêng để ký bằng thứ chỉ mình bạn có.</string>
+    <string name="key_bundled_description">Khóa cũ chỉ được giữ để cập nhật bản sao từ các phiên bản APK-Toolbox trước. Bản dựng mới dùng khóa riêng của lần cài đặt này.</string>
     <string name="key_custom_title">Khóa của bạn</string>
     <string name="key_custom_description">%1$s\nSHA-256 %2$s…\nHãy xuất khóa và giữ tệp: không có nó, các bản sao ký bằng khóa này không thể cập nhật sau khi cài lại ứng dụng.</string>
     <string name="key_create">Tạo</string>
     <string name="key_import">Nhập</string>
     <string name="key_export">Xuất</string>
-    <string name="key_reset">Dùng khóa dựng sẵn</string>
+    <string name="key_reset">Đặt lại khóa</string>
     <string name="key_password">Mật khẩu keystore</string>
     <string name="key_alias">Bí danh khóa (không bắt buộc)</string>
     <string name="key_created">Đã tạo khóa mới</string>
     <string name="key_imported">Đã nhập khóa</string>
     <string name="key_exported">Đã xuất khóa</string>
-    <string name="key_reset_done">Đã quay về khóa dựng sẵn</string>
+    <string name="key_reset_done">Đã tạo khóa riêng mới</string>
     <string name="key_failed">Thao tác khóa thất bại: %1$s</string>
     <string name="key_replace_title">Thay khóa của bạn?</string>
-    <string name="key_replace_message">Các bản sao ký bằng khóa hiện tại sẽ không còn được liệt kê và cập nhật, trừ khi bạn nhập lại khóa đó. Hãy xuất nó trước nếu có thể cần.</string>
+    <string name="key_replace_message">Thay đổi hoặc làm mất khóa này sẽ ngăn cập nhật tại chỗ các bản sao đã ký bằng khóa đó; cài đặt lại có thể làm mất dữ liệu. Hãy xuất bản sao lưu trước. APK Toolbox không có bảo đảm.</string>
     <string name="key_replace_confirm">Thay thế</string>
     <string name="clone_badge">Đánh dấu biểu tượng bằng dấu chấm</string>
     <string name="clone_rename_alias">Địa chỉ hóa theo tên bản sao</string>
@@ -225,4 +230,8 @@
     <string name="clone_permission_absent">Không yêu cầu ở phiên bản này. Nếu quay lại thì vẫn để tắt.</string>
     <string name="clone_permission_new">Mới ở phiên bản này</string>
     <string name="button_done">Xong</string>
+    <string name="settings_anchor_hour">Lần kiểm tra đầu tiên sau nửa đêm địa phương: %1$02d:00</string>
+    <string name="settings_schedule_inexact">Kiểm tra nền không chạy chính xác theo giờ. Doze, giới hạn pin/mạng và chính sách thiết bị có thể làm chậm chúng.</string>
+    <string name="key_unavailable_title">Không có khóa ký</string>
+    <string name="key_unavailable_description">Không thể giải mã khóa đã lưu. Hãy nhập bản sao lưu để tiếp tục cập nhật các bản sao đã ký bằng khóa này hoặc chủ động đặt lại khóa; bản sao có thể hỏng và mất dữ liệu.</string>
 </resources>
