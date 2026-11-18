@@ -240,12 +240,7 @@ Telegram channels need the app's own API id and hash from [my.telegram.org](http
 
 ## Download History
 
-<a href="https://github.com/bl3xand/APK-Toolbox/releases">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/bl3xand/APK-Toolbox/gh-pages/gh-dl/charts/total-trend--black.svg" />
-   <img alt="Download History Chart" src="https://raw.githubusercontent.com/bl3xand/APK-Toolbox/gh-pages/gh-dl/charts/total-trend--slate.svg" />
- </picture>
-</a>
+[![APK Toolbox Download History](https://release-monitor.com/chart/bl3xand/APK-Toolbox.svg)](https://release-monitor.com/#/bl3xand/APK-Toolbox)
 
 ## Star History
 
