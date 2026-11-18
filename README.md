@@ -11,9 +11,9 @@ Track, clone, install and merge Android apps — right on the phone, no root.
 
 [![Downloads](https://img.shields.io/github/downloads/bl3xand/APK-Toolbox/total?style=for-the-badge)](https://github.com/bl3xand/APK-Toolbox/releases)
 [![Stars](https://img.shields.io/github/stars/bl3xand/APK-Toolbox?style=for-the-badge)](https://github.com/bl3xand/APK-Toolbox/stargazers)
-[![4PDA](https://img.shields.io/badge/4PDA-Forum-blue?style=for-the-badge)](https://4pda.to/forum/index.php?showtopic=1127565)
 [![Latest Stable](https://img.shields.io/github/v/release/bl3xand/APK-Toolbox?style=for-the-badge&label=Latest%20Stable)](https://github.com/bl3xand/APK-Toolbox/releases/latest)
 [![Issues](https://img.shields.io/github/issues/bl3xand/APK-Toolbox?style=for-the-badge)](https://github.com/bl3xand/APK-Toolbox/issues)
+[![4PDA](https://img.shields.io/badge/4PDA-Forum-blue?style=for-the-badge)](https://4pda.to/forum/index.php?showtopic=1127565)
 
 </div>
 
@@ -237,6 +237,15 @@ Clones you build yourself are signed with the built-in key or your own — that 
 This makes one APK for each kind of processor and a universal one that has them all, in `app/build/outputs/apk/release/`. A release build is shrunk and obfuscated with R8. It is signed if a `keystore.properties` file (`storeFile`, `storePassword`, `keyAlias`, `keyPassword`) is present in the project root, and left unsigned otherwise.
 
 Telegram channels need the app's own API id and hash from [my.telegram.org](https://my.telegram.org). Copy `telegram.properties.example` to `telegram.properties` and fill them in; the file stays out of git. Without it the app builds and the Telegram source says it is not available.
+
+## Download History
+
+<a href="https://github.com/bl3xand/APK-Toolbox/releases">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/bl3xand/APK-Toolbox/gh-pages/gh-dl/charts/total-trend--black.svg" />
+   <img alt="Download History Chart" src="https://raw.githubusercontent.com/bl3xand/APK-Toolbox/gh-pages/gh-dl/charts/total-trend--slate.svg" />
+ </picture>
+</a>
 
 ## Star History
 

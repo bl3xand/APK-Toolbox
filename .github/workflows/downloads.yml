@@ -1,0 +1,26 @@
+name: Release download history
+
+on:
+  schedule:
+    - cron: '23 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-download-history
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Record downloads and publish chart
+        uses: Justagwas/github-downloads-action@268fef841fedd1444ec5f7bd6bdd7245dc91321e # v1.0.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          output_branch: gh-pages
+          publish_chart: 'true'
+          chart_themes: black,slate
+          chart_title_mode: custom
+          chart_title_text: APK Toolbox release downloads
