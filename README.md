@@ -40,6 +40,12 @@ Two things it does that are hard to find elsewhere:
 
 Get the latest build from [Releases](https://github.com/bl3xand/APK-Toolbox/releases). `APK-Toolbox-<version>-universal.apk` installs on anything; the others are smaller, one for each kind of processor (`arm64-v8a` for nearly every phone of the last years).
 
+> **The only official APK Toolbox pages**
+>
+> **[GitHub](https://github.com/bl3xand/APK-Toolbox)** · **[4PDA](https://4pda.to/forum/index.php?showtopic=1127565)**
+>
+> **Questions?** Open a **[GitHub issue](https://github.com/bl3xand/APK-Toolbox/issues)** or post on **[4PDA](https://4pda.to/forum/index.php?showtopic=1127565)**.
+
 ## Screenshots
 
 <p align="center">
