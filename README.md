@@ -9,8 +9,9 @@ Track, clone, install and merge Android apps — right on the phone, no root.
 <img width="200" alt="Clones" src="docs/screenshots/clones.jpg">
 <img width="200" alt="Settings" src="docs/screenshots/settings.jpg">
 
-[![Stars](https://img.shields.io/github/stars/bl3xand/APK-Toolbox?style=for-the-badge)](https://github.com/bl3xand/APK-Toolbox/stargazers)
 [![Downloads](https://img.shields.io/github/downloads/bl3xand/APK-Toolbox/total?style=for-the-badge)](https://github.com/bl3xand/APK-Toolbox/releases)
+[![Stars](https://img.shields.io/github/stars/bl3xand/APK-Toolbox?style=for-the-badge)](https://github.com/bl3xand/APK-Toolbox/stargazers)
+[![4PDA](https://img.shields.io/badge/4PDA-Forum-blue?style=for-the-badge)](https://4pda.to/forum/index.php?showtopic=1127565)
 [![Latest Stable](https://img.shields.io/github/v/release/bl3xand/APK-Toolbox?style=for-the-badge&label=Latest%20Stable)](https://github.com/bl3xand/APK-Toolbox/releases/latest)
 [![Issues](https://img.shields.io/github/issues/bl3xand/APK-Toolbox?style=for-the-badge)](https://github.com/bl3xand/APK-Toolbox/issues)
 
