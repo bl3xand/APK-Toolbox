@@ -71,7 +71,14 @@
         <item>every 3 months</item>
         <item>every 6 months</item>
         <item>once a year</item>
+        <item>every 4 hours</item>
+        <item>every 6 hours</item>
+        <item>every 8 hours</item>
+        <item>every 12 hours</item>
+        <item>every 24 hours</item>
     </string-array>
+    <string name="settings_anchor_hour">First check after local midnight: %1$02d:00</string>
+    <string name="settings_schedule_inexact">Background checks are inexact. Doze, battery/network constraints, and device restrictions may delay them.</string>
     <string name="settings_version" translatable="false">APK Toolbox %1$s</string>
     <string name="source_link" translatable="false">github.com/bl3xand/APK-Toolbox</string>
     <string name="source_url" translatable="false">https://github.com/bl3xand/APK-Toolbox</string>
@@ -141,22 +148,24 @@
 
     <string name="settings_signing_key">Signing key</string>
     <string name="key_bundled_title">Built-in key</string>
-    <string name="key_bundled_description">Clones and merged APKs are signed with the key that ships with the app. It is the same for everyone and public. Create or import a key of your own to sign with something only you have.</string>
+    <string name="key_bundled_description">Legacy key retained only to update clones from older APK-Toolbox versions. New builds use this installation\'s private key.</string>
+    <string name="key_unavailable_title">Signing key unavailable</string>
+    <string name="key_unavailable_description">The saved key could not be decrypted. Import its backup to keep updating clones signed with it, or explicitly reset the key; resetting may break clones and lose their data.</string>
     <string name="key_custom_title">Your own key</string>
     <string name="key_custom_description">%1$s\nSHA-256 %2$s…\nExport it and keep the file: without it, clones signed with this key cannot be updated after the app is reinstalled.</string>
     <string name="key_create">Create</string>
     <string name="key_import">Import</string>
     <string name="key_export">Export</string>
-    <string name="key_reset">Use built-in</string>
+    <string name="key_reset">Reset key</string>
     <string name="key_password">Keystore password</string>
     <string name="key_alias">Key alias (optional)</string>
     <string name="key_created">A new key was created</string>
     <string name="key_imported">Key imported</string>
     <string name="key_exported">Key exported</string>
-    <string name="key_reset_done">Back to the built-in key</string>
+    <string name="key_reset_done">A new private key was created</string>
     <string name="key_failed">Key operation failed: %1$s</string>
     <string name="key_replace_title">Replace your key?</string>
-    <string name="key_replace_message">Clones signed with the current key will no longer be listed or updated unless you import that key again. Export it first if you may need it.</string>
+    <string name="key_replace_message">Changing or losing this key prevents in-place updates of clones signed with it and may require reinstalling them, which can lose clone data. Export a backup first. APK Toolbox provides no warranty.</string>
     <string name="key_replace_confirm">Replace</string>
     <string name="clone_badge">Mark the icon with a dot</string>
     <string name="clone_rename_alias">Addressing by the clone name</string>

@@ -16,6 +16,7 @@ object ShizukuInstaller : Installer {
 
     override suspend fun install(
         context: Context, apks: List<File>, background: Boolean, label: String, installerPackage: String?,
+        requestUpdateOwnership: Boolean,
     ): InstallOutcome {
         AppLog.info("Shizuku install: ${label.ifBlank { apks.firstOrNull()?.name ?: "?" }} (${apks.size} file(s))")
         val error = ShizukuBridge.install(apks, installerPackage ?: context.packageName)

@@ -69,6 +69,11 @@
         <item>3 ayda bir</item>
         <item>6 ayda bir</item>
         <item>yılda bir</item>
+        <item>her 4 saatte bir</item>
+        <item>her 6 saatte bir</item>
+        <item>her 8 saatte bir</item>
+        <item>her 12 saatte bir</item>
+        <item>her 24 saatte bir</item>
     </string-array>
     <string name="channel_updates">Klon güncellemeleri</string>
     <string name="settings_play_protect_button">Play Protect ayarları</string>
@@ -133,22 +138,22 @@
 
     <string name="settings_signing_key">İmza anahtarı</string>
     <string name="key_bundled_title">Yerleşik anahtar</string>
-    <string name="key_bundled_description">Klonlar ve birleştirilen APK\'lar, uygulamayla gelen anahtarla imzalanır. Herkes için aynıdır ve herkese açıktır. Yalnızca sizin olan bir şeyle imzalamak için kendi anahtarınızı oluşturun ya da alın.</string>
+    <string name="key_bundled_description">Eski anahtar yalnızca önceki APK-Toolbox sürümlerindeki klonları güncellemek için saklanır. Yeni derlemeler bu kurulumun özel anahtarını kullanır.</string>
     <string name="key_custom_title">Kendi anahtarınız</string>
     <string name="key_custom_description">%1$s\nSHA-256 %2$s…\nDışa aktarın ve dosyayı saklayın: onsuz, bu anahtarla imzalanmış klonlar uygulama yeniden kurulduktan sonra güncellenemez.</string>
     <string name="key_create">Oluştur</string>
     <string name="key_import">İçe aktar</string>
     <string name="key_export">Dışa aktar</string>
-    <string name="key_reset">Yerleşiği kullan</string>
+    <string name="key_reset">Anahtarı sıfırla</string>
     <string name="key_password">Keystore parolası</string>
     <string name="key_alias">Anahtar rumuzu (isteğe bağlı)</string>
     <string name="key_created">Yeni bir anahtar oluşturuldu</string>
     <string name="key_imported">Anahtar içe aktarıldı</string>
     <string name="key_exported">Anahtar dışa aktarıldı</string>
-    <string name="key_reset_done">Yerleşik anahtara dönüldü</string>
+    <string name="key_reset_done">Yeni özel anahtar oluşturuldu</string>
     <string name="key_failed">Anahtar işlemi başarısız: %1$s</string>
     <string name="key_replace_title">Anahtarınız değiştirilsin mi?</string>
-    <string name="key_replace_message">Geçerli anahtarla imzalanmış klonlar, o anahtarı yeniden içe aktarmadıkça listelenmez ve güncellenmez. Gerekirse diye önce dışa aktarın.</string>
+    <string name="key_replace_message">Bu anahtarı değiştirmek veya kaybetmek, onunla imzalanan klonların yerinde güncellenmesini engeller; yeniden yükleme verilerini silebilir. Önce yedek dışa aktarın. APK Toolbox garanti olmadan sunulur.</string>
     <string name="key_replace_confirm">Değiştir</string>
     <string name="clone_badge">Simgeyi noktayla işaretle</string>
     <string name="clone_rename_alias">Klon adıyla adresleme</string>
@@ -227,4 +232,8 @@
     <string name="clone_permission_absent">Bu sürümde istenmiyor. Geri gelirse kapalı kalır.</string>
     <string name="clone_permission_new">Bu sürümde yeni</string>
     <string name="button_done">Tamam</string>
+    <string name="settings_anchor_hour">Yerel gece yarısından sonraki ilk denetim: %1$02d:00</string>
+    <string name="settings_schedule_inexact">Arka plan denetimleri kesin zamanlı değildir. Doze, pil/ağ kısıtlamaları ve cihaz politikaları bunları geciktirebilir.</string>
+    <string name="key_unavailable_title">İmza anahtarı kullanılamıyor</string>
+    <string name="key_unavailable_description">Kaydedilen anahtar çözülemedi. İmzalanan klonları güncellemeye devam etmek için yedeği içe aktarın veya anahtarı açıkça sıfırlayın; klonlar bozulabilir ve verileri kaybolabilir.</string>
 </resources>

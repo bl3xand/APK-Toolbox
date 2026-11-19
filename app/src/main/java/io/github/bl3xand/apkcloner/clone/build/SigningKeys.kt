@@ -31,9 +31,9 @@ import javax.crypto.SecretKey
 import javax.crypto.spec.GCMParameterSpec
 
 /**
- * The keys APKs are signed with. Out of the box that is a key bundled with the app - the same
- * for everybody, and public. The user can replace it with one of their own, created here or
- * imported, which is then kept encrypted in the app's private storage.
+ * The key used for new APKs is generated per installation and kept encrypted in app-private
+ * storage. The bundled key remains available only to recognize and update clones made by older
+ * APK-Toolbox releases; it is never selected for a new clone.
  */
 class SigningKeys private constructor(private val context: Context) {
 
@@ -50,11 +50,30 @@ class SigningKeys private constructor(private val context: Context) {
     private val storage = File(context.filesDir, "signing/key.bin")
 
     @Volatile
-    var custom: SigningKey? = runCatching { load() }.getOrNull()
+    var custom: SigningKey? = null
         private set
 
+    private var loadFailure: Exception? = null
+
+    init {
+        if (storage.exists()) {
+            try {
+                custom = load()
+            } catch (e: Exception) {
+                // Do not silently replace an existing key after keystore invalidation/corruption.
+                loadFailure = e
+            }
+        } else {
+            generate(KEY_COMMON_NAME)
+        }
+    }
+
     /** What new clones and merged APKs are signed with. */
-    val active: SigningKey get() = custom ?: bundled
+    val active: SigningKey get() = custom ?: loadFailure?.let {
+        throw IllegalStateException("The saved signing key could not be opened; import its backup before building clones", it)
+    } ?: bundled
+
+    val savedKeyUnavailable: Boolean get() = loadFailure != null
 
     /**
      * The key that produced an installed app's signature, if it is one of ours. An update has to
@@ -100,10 +119,12 @@ class SigningKeys private constructor(private val context: Context) {
         }
     }
 
-    /** Back to the bundled key. Apps signed with the discarded key can no longer be updated. */
+    /** Explicitly discard the active key and generate a fresh installation-private key. */
     fun reset() {
         storage.delete()
         custom = null
+        loadFailure = null
+        generate(KEY_COMMON_NAME)
     }
 
     private fun store(key: SigningKey) {
@@ -123,6 +144,7 @@ class SigningKeys private constructor(private val context: Context) {
             out.write(cipher.doFinal(plain))
         }
         custom = key
+        loadFailure = null
     }
 
     private fun load(): SigningKey? {
@@ -165,6 +187,7 @@ class SigningKeys private constructor(private val context: Context) {
         private const val KEY_BITS = 2048
         private const val VALIDITY_YEARS = 30
         private const val EXPORT_ALIAS = "apk-toolbox"
+        private const val KEY_COMMON_NAME = "APK Toolbox installation"
         private const val ANDROID_KEYSTORE = "AndroidKeyStore"
         private const val WRAPPING_ALIAS = "signing-key-wrap"
         private const val TRANSFORMATION = "AES/GCM/NoPadding"

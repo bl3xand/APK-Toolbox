@@ -111,9 +111,10 @@ class SettingsSheet : BottomSheetDialogFragment() {
 
         binding.switchCheckUpdates.isChecked = settings.checkUpdates
         binding.switchAutoInstall.isChecked = settings.autoInstall
-        binding.sliderInterval.valueTo = (AppSettings.CHECK_INTERVAL_DAYS.size - 1).toFloat()
+        binding.sliderInterval.valueTo = (AppSettings.CHECK_INTERVAL_HOURS.size - 1).toFloat()
         binding.sliderInterval.value = settings.checkInterval.toFloat()
         binding.sliderInterval.setLabelFormatter { intervals[it.toInt()] }
+        binding.sliderAnchorHour.value = settings.checkAnchorHour.toFloat()
         binding.toggleMethod.check(
             if (settings.installMethod == InstallMethod.SHIZUKU) R.id.buttonMethodShizuku else R.id.buttonMethodStock
         )
@@ -140,6 +141,12 @@ class SettingsSheet : BottomSheetDialogFragment() {
         binding.sliderInterval.addOnChangeListener { _, value, fromUser ->
             if (!fromUser) return@addOnChangeListener
             settings.checkInterval = value.toInt()
+            AutoUpdateWorker.schedule(requireContext())
+            render()
+        }
+        binding.sliderAnchorHour.addOnChangeListener { _, value, fromUser ->
+            if (!fromUser) return@addOnChangeListener
+            settings.checkAnchorHour = value.toInt()
             AutoUpdateWorker.schedule(requireContext())
             render()
         }
@@ -238,6 +245,8 @@ class SettingsSheet : BottomSheetDialogFragment() {
         val intervals = resources.getStringArray(R.array.check_intervals)
         val checking = settings.checkUpdates
         binding.sliderInterval.isEnabled = checking
+        binding.sliderAnchorHour.isEnabled = checking
+        binding.textAnchorHour.isEnabled = checking
         binding.textInterval.isEnabled = checking
         binding.rowAutoInstall.isEnabled = checking
         binding.textAutoInstall.isEnabled = checking
@@ -252,6 +261,7 @@ class SettingsSheet : BottomSheetDialogFragment() {
             switch.isEnabled = checking
         }
         binding.textInterval.text = getString(R.string.settings_check_interval, intervals[settings.checkInterval])
+        binding.textAnchorHour.text = getString(R.string.settings_anchor_hour, settings.checkAnchorHour)
 
         if (settings.installMethod == InstallMethod.SHIZUKU) {
             when (ShizukuBridge.state()) {
@@ -285,7 +295,11 @@ class SettingsSheet : BottomSheetDialogFragment() {
         val binding = _binding ?: return
         val custom = keys.custom
         binding.rowKeyCustom.isVisible = custom != null
-        if (custom == null) {
+        if (keys.savedKeyUnavailable) {
+            binding.textKeyTitle.setText(R.string.key_unavailable_title)
+            binding.textKeyDescription.setText(R.string.key_unavailable_description)
+            binding.rowKeyCustom.isVisible = true
+        } else if (custom == null) {
             binding.textKeyTitle.setText(R.string.key_bundled_title)
             binding.textKeyDescription.setText(R.string.key_bundled_description)
         } else {
@@ -300,7 +314,7 @@ class SettingsSheet : BottomSheetDialogFragment() {
 
     /** Replacing a key of the user's own strands whatever was signed with it, so ask first. */
     private fun confirmKeyChange(action: () -> Unit) {
-        if (keys.custom == null) return action()
+        if (keys.custom == null && !keys.savedKeyUnavailable) return action()
         requireContext().showSheet(
             getString(R.string.key_replace_title), getString(R.string.key_replace_message),
             positive = getString(R.string.key_replace_confirm), negative = getString(android.R.string.cancel),

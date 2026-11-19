@@ -24,7 +24,7 @@ import org.junit.Test
  */
 class XiaomiDexWriteFailureTest {
 
-    private val apk = System.getProperty("xiaomi.apk")?.let(::File)?.takeIf { it.exists() }
+    private val apk = System.getProperty("xiaomi.apk")?.takeIf(String::isNotBlank)?.let(::File)?.takeIf { it.isFile }
 
     private fun dexEntry(name: String): ByteArray =
         ZipFile(apk!!).use { it.getInputStream(it.getEntry(name)).readBytes() }

@@ -9,6 +9,19 @@ class AppSettings(context: Context) {
 
     private val prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE)
 
+    init {
+        if (!prefs.contains(SettingsKeys.CHECK_INTERVAL_HOURS)) {
+            val freshInstall = prefs.all.isEmpty()
+            val index = prefs.getInt(
+                SettingsKeys.CHECK_INTERVAL,
+                if (freshInstall) DEFAULT_CHECK_INTERVAL else LEGACY_DEFAULT_CHECK_INTERVAL,
+            ).coerceIn(CHECK_INTERVAL_HOURS.indices)
+            // Preserve the old slider's value exactly; subsequent versions use this stable duration.
+            prefs.edit().putInt(SettingsKeys.CHECK_INTERVAL, index)
+                .putInt(SettingsKeys.CHECK_INTERVAL_HOURS, intervalHours(index)).apply()
+        }
+    }
+
     /** Master switch: look for outdated clones in the background at all. */
     var checkUpdates: Boolean
         get() = prefs.getBoolean(SettingsKeys.CHECK_UPDATES, false)
@@ -19,10 +32,29 @@ class AppSettings(context: Context) {
         get() = prefs.getBoolean(SettingsKeys.AUTO_INSTALL, false)
         set(value) = put(SettingsKeys.AUTO_INSTALL, value)
 
-    /** Index into [CHECK_INTERVAL_DAYS]. */
+    /** Index into [CHECK_INTERVAL_HOURS]; old indices retain their original day-based meaning. */
     var checkInterval: Int
-        get() = prefs.getInt(SettingsKeys.CHECK_INTERVAL, DEFAULT_CHECK_INTERVAL).coerceIn(CHECK_INTERVAL_DAYS.indices)
-        set(value) = put(SettingsKeys.CHECK_INTERVAL, value)
+        get() = prefs.getInt(SettingsKeys.CHECK_INTERVAL, DEFAULT_CHECK_INTERVAL).coerceIn(CHECK_INTERVAL_HOURS.indices)
+        set(value) {
+            val index = value.coerceIn(CHECK_INTERVAL_HOURS.indices)
+            prefs.edit().putInt(SettingsKeys.CHECK_INTERVAL, index)
+                .putInt(SettingsKeys.CHECK_INTERVAL_HOURS, CHECK_INTERVAL_HOURS[index]).apply()
+            AppLog.debug("Setting ${SettingsKeys.CHECK_INTERVAL} = $index")
+        }
+
+    /** Stable duration in hours, migrated from the old slider index without changing its meaning. */
+    val checkIntervalHours: Int
+        get() {
+            val saved = prefs.getInt(SettingsKeys.CHECK_INTERVAL_HOURS, Int.MIN_VALUE)
+            if (saved != Int.MIN_VALUE) return saved.coerceIn(1, 8760)
+            val hours = intervalHours(checkInterval)
+            prefs.edit().putInt(SettingsKeys.CHECK_INTERVAL_HOURS, hours).apply()
+            return hours
+        }
+
+    var checkAnchorHour: Int
+        get() = prefs.getInt(SettingsKeys.CHECK_ANCHOR_HOUR, DEFAULT_ANCHOR_HOUR).coerceIn(0, 23)
+        set(value) = put(SettingsKeys.CHECK_ANCHOR_HOUR, value.coerceIn(0, 23))
 
     var installMethod: InstallMethod
         get() = InstallMethod.entries.firstOrNull { it.name == prefs.getString(SettingsKeys.INSTALL_METHOD, null) }
@@ -94,8 +126,6 @@ class AppSettings(context: Context) {
         get() = prefs.getBoolean(SettingsKeys.MERGE_FORCE, false)
         set(value) = put(SettingsKeys.MERGE_FORCE, value)
 
-    val checkIntervalDays: Long get() = CHECK_INTERVAL_DAYS[checkInterval].toLong()
-
     /** Stores a setting; every change is put on record, so the log shows how the app was set up. */
     private fun put(key: String, value: Any) {
         prefs.edit().apply {
@@ -109,9 +139,13 @@ class AppSettings(context: Context) {
     }
 
     companion object {
-        private const val DEFAULT_CHECK_INTERVAL = 2
+        private const val DEFAULT_CHECK_INTERVAL = 11
+        private const val LEGACY_DEFAULT_CHECK_INTERVAL = 2
+        private const val DEFAULT_ANCHOR_HOUR = 1
 
-        /** Slider stops, from once a day to once a year. Matches the check_intervals string array. */
-        val CHECK_INTERVAL_DAYS = intArrayOf(1, 3, 7, 14, 30, 90, 180, 365)
+        /** Existing day-based choices stay at their original indices; hourly choices are appended. */
+        val CHECK_INTERVAL_HOURS = intArrayOf(24, 72, 168, 336, 720, 2160, 4320, 8760, 4, 6, 8, 12, 24)
+
+        internal fun intervalHours(index: Int): Int = CHECK_INTERVAL_HOURS[index.coerceIn(CHECK_INTERVAL_HOURS.indices)]
     }
 }

@@ -60,6 +60,8 @@
 
     <string name="settings_title">Настройки</string>
     <string name="settings_check_interval">Проверка обновлений: %1$s</string>
+    <string name="settings_anchor_hour">Первая проверка после местной полуночи: %1$02d:00</string>
+    <string name="settings_schedule_inexact">Фоновые проверки выполняются неточно: Doze, ограничения батареи и сети, а также ограничения устройства могут задержать их.</string>
     <string-array name="check_intervals">
         <item>раз в день</item>
         <item>раз в 3 дня</item>
@@ -69,6 +71,11 @@
         <item>раз в 3 месяца</item>
         <item>раз в полгода</item>
         <item>раз в год</item>
+        <item>каждые 4 часа</item>
+        <item>каждые 6 часов</item>
+        <item>каждые 8 часов</item>
+        <item>каждые 12 часов</item>
+        <item>каждые 24 часа</item>
     </string-array>
 
     <string name="channel_updates">Обновления клонов</string>
@@ -134,22 +141,24 @@
 
     <string name="settings_signing_key">Ключ подписи</string>
     <string name="key_bundled_title">Встроенный ключ</string>
-    <string name="key_bundled_description">Клоны и объединённые APK подписываются ключом, который идёт вместе с приложением. Он один для всех и общедоступен. Создайте или импортируйте свой ключ, чтобы подписывать ключом, который есть только у вас.</string>
+    <string name="key_bundled_description">Старый ключ сохранён только для обновления клонов из прежних версий APK-Toolbox. Новые сборки используют личный ключ этой установки.</string>
+    <string name="key_unavailable_title">Ключ подписи недоступен</string>
+    <string name="key_unavailable_description">Не удалось расшифровать сохранённый ключ. Импортируйте его резервную копию, чтобы продолжать обновлять подписанные им клоны, или явно сбросьте ключ; это может нарушить работу клонов и привести к потере их данных.</string>
     <string name="key_custom_title">Свой ключ</string>
     <string name="key_custom_description">%1$s\nSHA-256 %2$s…\nЭкспортируйте его и сохраните файл: без него клоны, подписанные этим ключом, нельзя будет обновить после переустановки приложения.</string>
     <string name="key_create">Создать</string>
     <string name="key_import">Импорт</string>
     <string name="key_export">Экспорт</string>
-    <string name="key_reset">Встроенный</string>
+    <string name="key_reset">Сбросить ключ</string>
     <string name="key_password">Пароль хранилища</string>
     <string name="key_alias">Псевдоним ключа (необязательно)</string>
     <string name="key_created">Создан новый ключ</string>
     <string name="key_imported">Ключ импортирован</string>
     <string name="key_exported">Ключ экспортирован</string>
-    <string name="key_reset_done">Используется встроенный ключ</string>
+    <string name="key_reset_done">Создан новый личный ключ</string>
     <string name="key_failed">Ошибка операции с ключом: %1$s</string>
     <string name="key_replace_title">Заменить свой ключ?</string>
-    <string name="key_replace_message">Клоны, подписанные текущим ключом, пропадут из списка и перестанут обновляться, пока вы снова не импортируете этот ключ. Сначала экспортируйте его, если он может понадобиться.</string>
+    <string name="key_replace_message">Изменение или потеря ключа не позволит обновлять подписанные им клоны на месте; переустановка может привести к потере данных. Сначала экспортируйте резервную копию. APK Toolbox предоставляется без гарантий.</string>
     <string name="key_replace_confirm">Заменить</string>
     <string name="clone_badge">Пометить значок точкой</string>
     <string name="clone_rename_alias">Адресация по имени клона</string>

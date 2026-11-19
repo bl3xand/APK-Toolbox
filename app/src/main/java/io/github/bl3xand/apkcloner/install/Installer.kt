@@ -35,6 +35,7 @@ interface Installer {
         background: Boolean = false,
         label: String = "",
         installerPackage: String? = null,
+        requestUpdateOwnership: Boolean = false,
     ): InstallOutcome
 
     companion object {

@@ -147,7 +147,7 @@ class UpdateChecker(private val context: Context, private val repo: SourcesRepos
     }
 
     /** The interval of the app's background check, which the Sources tab shares. */
-    val updateIntervalMinutes: Long get() = AppSettings(context).checkIntervalDays * 24 * 60
+    val updateIntervalMinutes: Long get() = AppSettings(context).checkIntervalHours * 60L
 
     /**
      * What a row says when its check failed. A network that does not answer - DNS that resolves

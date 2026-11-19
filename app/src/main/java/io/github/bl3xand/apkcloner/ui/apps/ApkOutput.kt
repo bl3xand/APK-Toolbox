@@ -39,25 +39,25 @@ class ApkOutput(
     val installing: StateFlow<Boolean> = _installing.asStateFlow()
 
     /** Installs [apks] in the background, unless an install is running already. */
-    fun installInBackground(apks: List<File>) {
+    fun installInBackground(apks: List<File>, requestUpdateOwnership: Boolean = false) {
         if (_installing.value) return
         // Set before the coroutine starts, so a second tap finds it taken.
         _installing.value = true
-        scope.launch(Dispatchers.IO) { installTracked(apks) }
+        scope.launch(Dispatchers.IO) { installTracked(apks, requestUpdateOwnership) }
     }
 
     /** Installs [apks] and keeps [installing] set for the whole of it. */
-    suspend fun installTracked(apks: List<File>) {
+    suspend fun installTracked(apks: List<File>, requestUpdateOwnership: Boolean = false) {
         _installing.value = true
         try {
-            install(apks)
+            install(apks, requestUpdateOwnership)
         } finally {
             _installing.value = false
         }
     }
 
     /** Returns once the install has actually ended, so progress can be shown for all of it. */
-    suspend fun install(apks: List<File>) = coroutineScope {
+    suspend fun install(apks: List<File>, requestUpdateOwnership: Boolean = false) = coroutineScope {
         // What lands on the device is the first APK's package (the base of a split set), read
         // from the file itself as SourcesInstaller reads it: the system is asked first, and a
         // base it will not read alone is peeked at here.
@@ -71,7 +71,9 @@ class ApkOutput(
         // coordination SourcesInstaller and AutoUpdateWorker go through, which this driver
         // was the one to skip.
         val runInstall: suspend () -> Unit = {
-            when (val outcome = Installer.choose(application, background = false).install(application, apks)) {
+            when (val outcome = Installer.choose(application, background = false).install(
+                application, apks, requestUpdateOwnership = requestUpdateOwnership,
+            )) {
                 is InstallOutcome.Pending -> {
                     // The outcome is reported by this app's own sheets, not by the receiver.
                     InstallReceiver.claimSelfReport(outcome.sessionId)

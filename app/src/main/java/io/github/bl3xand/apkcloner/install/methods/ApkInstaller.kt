@@ -2,9 +2,12 @@ package io.github.bl3xand.apkcloner.install.methods
 
 import android.app.PendingIntent
 import android.content.Context
+import android.content.pm.PackageManager
 import android.content.Intent
 import android.content.pm.PackageInstaller
 import android.os.Build
+import android.Manifest
+import io.github.bl3xand.apkcloner.compat.archiveInfoOrNull
 import io.github.bl3xand.apkcloner.install.InstallReceiver
 import io.github.bl3xand.apkcloner.log.AppLog
 import java.io.File
@@ -16,9 +19,30 @@ object ApkInstaller {
      * [background] marks sessions started without the app on screen: if the system insists on a
      * confirmation, it is offered as a notification instead of being launched directly.
      */
-    fun install(context: Context, apks: List<File>, background: Boolean = false, label: String = ""): Int {
+    fun install(
+        context: Context,
+        apks: List<File>,
+        background: Boolean = false,
+        label: String = "",
+        requestUpdateOwnership: Boolean = false,
+    ): Int {
         val installer = context.packageManager.packageInstaller
         val params = PackageInstaller.SessionParams(PackageInstaller.SessionParams.MODE_FULL_INSTALL)
+        val packageName = apks.firstOrNull()?.let { context.packageManager.archiveInfoOrNull(it.path)?.packageName }
+        val isFirstInstall = packageName != null && runCatching {
+            context.packageManager.getApplicationInfo(packageName, 0)
+        }.isFailure
+        val mayRequestOwnership = canRequestUpdateOwnership(
+            Build.VERSION.SDK_INT,
+            requestedByCloneBuilder = requestUpdateOwnership,
+            firstInstall = isFirstInstall,
+            hasPermission = Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE &&
+                context.checkSelfPermission(Manifest.permission.ENFORCE_UPDATE_OWNERSHIP) == PackageManager.PERMISSION_GRANTED,
+        )
+        if (mayRequestOwnership) {
+            params.setRequestUpdateOwnership(true)
+            AppLog.info("System installer: requested update ownership for first clone install $packageName")
+        }
         // Lets the system skip the confirmation when updating a clone this app installed itself.
         // Anything else still gets the usual prompt.
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
@@ -55,4 +79,11 @@ object ApkInstaller {
         }
         return sessionId
     }
+
+    internal fun canRequestUpdateOwnership(
+        platformSdk: Int,
+        requestedByCloneBuilder: Boolean,
+        firstInstall: Boolean,
+        hasPermission: Boolean,
+    ): Boolean = platformSdk >= 34 && requestedByCloneBuilder && firstInstall && hasPermission
 }

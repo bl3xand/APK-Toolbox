@@ -17,4 +17,6 @@ internal object SettingsKeys {
     const val CHECK_UPDATES = "check_updates"
     const val AUTO_INSTALL = "auto_install"
     const val CHECK_INTERVAL = "check_interval"
+    const val CHECK_INTERVAL_HOURS = "check_interval_hours"
+    const val CHECK_ANCHOR_HOUR = "check_anchor_hour"
 }
